@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'components/second_screen.dart';
 
 void main() {
   runApp(MyApp());
@@ -14,13 +13,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      initialRoute: '/',
-      routes: {
-        // When navigating to the "/" route, build the FirstScreen widget.
-        '/': (context) => MyHomePage(title: 'HOME'),
-        // When navigating to the "/second" route, build the SecondScreen widget.
-        '/second': (context) => SecondScreen(),
-      },
+      home: MyHomePage(title: 'HOME'),
     );
   }
 }
@@ -82,17 +75,6 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
               onPressed: _decrementCounter,
               child: Text('Decrement'),
-            ),
-            TextButton(
-              style: ButtonStyle(
-                foregroundColor: MaterialStateProperty.all<Color>(Colors.white),
-                backgroundColor: MaterialStateProperty.all<Color>(Colors.red),
-              ),
-              onPressed: () {
-                // Navigate to the second screen using a named route.
-                Navigator.pushNamed(context, '/second');
-              },
-              child: Text('Second screen'),
             )
           ],
         ),
